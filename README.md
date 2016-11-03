@@ -22,6 +22,27 @@ python -c "import django; print django.__version__" # django-admin.py --version
 
 ##### Django admin && manage.py [ref](https://docs.djangoproject.com/en/1.10/ref/django-admin/)
 
+```
+
+## Django-admin: idea of separation between content publishers and public site
+# 
+
+python manage.py createsuperuser
+
+>prompted: <username>
+>prompted: <email>
+>prompted: <password>
+
+## Django-admin section:
+ 
+> http://<domain>:<port>/admin/
+
+
+
+
+
+
+```
 
 
 ##### Useful Commands
@@ -56,15 +77,17 @@ python manage.py runserver 0.0.0.0:8000     # visible to any host within dev hos
 
 python manage.py shell
 
-# query api
+# Query MODEL API
 
 > from <appName>.models import <modelClass>
 > <modelClass>.objects.all()
 > modelInstance = <modelClass>([<key>=<value>][,...])
 > modelInstance.save()
 > modelInstance.id
-
-
+> <modelClass>.objects.get(<attribute>=<value>)
+> modelInstance.<fkClassName>_set.<querySelector>() # querySelector : [all|count|create]
+> dir(<className>) # we can see that Django generates <fk_Classname>_set function
+> <className
 
 
 
@@ -85,6 +108,7 @@ python manage.py makemigrations <appname>
 python manage.py migrate <appname>  # apply those changes to the database.
 
 ## The reason that they are separate commands to make and apply migrations is becuase you'll commit migrations to your version control system and ship them with you app;
+
 
 
 ```
