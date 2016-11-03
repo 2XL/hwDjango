@@ -1,9 +1,13 @@
 from django.db import models
-
+from django.utils import timezone
 
 class Animal(models.Model):
+
     animal_name = models.CharField(max_length=200)
-    animal_birth = models.DateTimeField('date birth') # 1st arg is introspective human readable name
+    animal_birth = models.DateTimeField('date birth', default=timezone.now) # 1st arg is introspective human readable name
+
+    def __str__(self):
+        return "Animal({})".format(self.animal_name)
 
 
 class Person(models.Model):
@@ -13,3 +17,11 @@ class Person(models.Model):
     person_details = models.CharField(max_length=3000)
     person_views = models.IntegerField(default=0)
 
+    def __str__(self):
+        return "Person({})".format(self.person_name)
+
+
+"""
+
+
+"""

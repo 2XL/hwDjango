@@ -20,12 +20,15 @@ python -c "import django; print django.__version__" # django-admin.py --version
 ```
 
 
+##### Django admin && manage.py [ref](https://docs.djangoproject.com/en/1.10/ref/django-admin/)
+
+
 
 ##### Useful Commands
 
 
 ```
-# create django project
+## create django project
 
 django-admin startproject <project_name>
 
@@ -38,16 +41,32 @@ django_bookmarks/
 `-- manage.py           # utility script used to manage the project
 
 
-# creating database tables
+## creating database tables
 
 python manage.py syncdb
 
-# start the server
+## start the server
 
 python manage.py runserver [[<ip>:]<port number>]
 
-python manage.py runserver 8080
-python manage.py runserver 0.0.0.0:8000
+python manage.py runserver 8080             # only visible to dev host
+python manage.py runserver 0.0.0.0:8000     # visible to any host within dev host range
+
+## Django CLI shell
+
+python manage.py shell
+
+# query api
+
+> from <appName>.models import <modelClass>
+> <modelClass>.objects.all()
+> modelInstance = <modelClass>([<key>=<value>][,...])
+> modelInstance.save()
+> modelInstance.id
+
+
+
+
 
 ```
 
@@ -58,9 +77,15 @@ python manage.py runserver 0.0.0.0:8000
 ### Models
 
 # tell django to search ofr models changes, and store the changes as a migration.
-python manage.py makemigrations <appname> 
+
+python manage.py makemigrations <appname>  
 
 # migrations are how django stores changes to your models (database schema | files on disk)
+
+python manage.py migrate <appname>  # apply those changes to the database.
+
+## The reason that they are separate commands to make and apply migrations is becuase you'll commit migrations to your version control system and ship them with you app;
+
 
 ```
 
