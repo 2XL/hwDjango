@@ -103,7 +103,7 @@ python manage.py shell
 
 ```
 
-##### Django MVC
+##### Django M[V](https://docs.djangoproject.com/en/1.10/intro/tutorial04/)C
 
 ```
 
@@ -120,6 +120,8 @@ python manage.py migrate <appname>  # apply those changes to the database.
 ## The reason that they are separate commands to make and apply migrations is becuase you'll commit migrations to your version control system and ship them with you app;
 
 ### Views
+
+# use class base View from Django 
 
 
 
@@ -154,6 +156,49 @@ python manage.py migrate
 
 
 ```
+
+
+#### Django Testing
+
+* Code without tests is broken by design"
+    * write test before additional coding.
+    * when a test fails, add more test to handle the raised exception.
+    * proceed to refactor the code for the latest tests and additional unexpected tests.
+    * until the code behave in expected ways.
+
+```
+## test model
+
+# create test cases
+python -c "from django.test import TestCase; class <Appname><TestName>(TestCase):; def <testCaseName>"
+
+# run tests
+python manage.py test <appname> # have to implement tests.py with TestCase
+
+
+
+## test view (script:testCase)
+
+# create an instance of the client for our use.
+python -c "from django.test import Client; client = Client()"
+
+# have the client perform url requests to our domain and specify the expected response.
+response = client.get('<url>')
+
+# rather than hard code <url> use reverse()
+response = client.get(reverse('<appname_ns>:<appview')
+
+## test view (cli)
+
+# setup cli environment
+python -c "from django.test.utils import setup_test_environment; setup_test_environment()"
+
+```
+
+
+
+    
+ 
 
 
 

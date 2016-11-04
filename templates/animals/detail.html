@@ -9,6 +9,7 @@
 {## url returns an absolute path reference <without domain name> marching a given view and optional parameters #}
 
     {% csrf_token %}
+    {# middleware from MIDDLEWARE settings , Protection against Cross Site Request Forgeries   #}
     <input type="text" name="animal_name" value="{{  animal.animal_name }}">
     {# whatever model atributes here    #}
 
