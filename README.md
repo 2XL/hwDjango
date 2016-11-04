@@ -130,6 +130,19 @@ python manage.py migrate <appname>  # apply those changes to the database.
 ```
 
 
+##### Django REST
+
+```
+# Installation
+pip install djangorestframework
+pip install markdown
+pip install django-filter
+
+
+```
+
+
+
 
 ##### Git commands
 
@@ -196,6 +209,15 @@ response = client.get(reverse('<appname_ns>:<appview')
 python -c "from django.test.utils import setup_test_environment; setup_test_environment()"
 
 ## live server testing (browser automation using selenium)... 
+
+```
+
+
+##### Django debugging
+
+```
+pip install django-debug-toolbar
+
 
 ```
 
