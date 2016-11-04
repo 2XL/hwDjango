@@ -11,10 +11,11 @@ def index(request):
 
 def details(request, animal_id):
 
-    animal = get_object_or_404(Animal, pk=animal_id)
+    # animal = get_object_or_404(Animal, pk=animal_id)
 
-    return render(request=request, template_name="animals/detail.html",context={'animal': animal})
-    # return HttpResponse(content="You're looking at details {}".format(animal_id))
+    # return render(request=request, template_name="animals/templates/animals/detail.html", context={'animal': animal})
+
+    return HttpResponse(content="You're looking at details {}".format(animal_id))
 
 
 

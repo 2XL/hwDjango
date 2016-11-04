@@ -202,6 +202,19 @@ python -c "from django.test.utils import setup_test_environment; setup_test_envi
 
 
     
+##### Packaging Reusable Apps
+
+```
+## Prerequisite
+
+setuptools
+
+pip
+
+```
+
+1. create app: <appname> | django-<appname> # helps others identify as django specific app
+2. dev the app :construction_worker: :wrench: :nut_and_bolt:
  
 
 

@@ -13,7 +13,7 @@ class AnimalAdmin(admin.ModelAdmin):
 
 class PersonAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('SET 1 NAME', {'fields': ['person_name']})
+        ('SET 1 NAME', {'fields': ['person_name']}),
         ('SET 2 NAME', {'fields': ['person_email']})
     ]
     # fields = ['person_name']
