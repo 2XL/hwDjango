@@ -1,9 +1,11 @@
+{% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'pools/style.css' %}" />
 <!--
 Vista para animal
 -->
 <li>
-{#    <a href="{%  url 'detail' animal.id %}">#}
+    <a href="{%  url 'animals:details' animal.id %}">#}
         {{ animal.animal_name }}
-{#    </a>#}
+    </a>#}
 </li>

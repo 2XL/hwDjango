@@ -166,6 +166,8 @@ python manage.py migrate
     * proceed to refactor the code for the latest tests and additional unexpected tests.
     * until the code behave in expected ways.
 
+* Test prevents having to solve the same problem twice over time. and also logs the bug history in a clean and handy fashion.
+
 ```
 ## test model
 
@@ -192,6 +194,8 @@ response = client.get(reverse('<appname_ns>:<appview')
 
 # setup cli environment
 python -c "from django.test.utils import setup_test_environment; setup_test_environment()"
+
+## live server testing (browser automation using selenium)... 
 
 ```
 
