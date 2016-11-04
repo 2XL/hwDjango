@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
-
+# The base name will be threated as app_name >>> [[/]<app_dir>/]<app_name>
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',

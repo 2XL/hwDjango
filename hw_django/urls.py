@@ -16,10 +16,14 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
+
+from animals import urls
+
 from . import views
 
 urlpatterns = [
     url(regex=r'^$', view=views.index, name='index'),
     url(regex=r'^name', view=views.index, name='index'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', view=include(admin.site.urls)),
+    url(r'^animals/', include(urls, namespace='animals'))
 ]

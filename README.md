@@ -20,6 +20,12 @@ python -c "import django; print django.__version__" # django-admin.py --version
 ```
 
 
+
+##### Django env vars
+
+* export DJANGO_COLORS="{dark,light,ncolor}"
+
+
 ##### Django admin && manage.py [ref](https://docs.djangoproject.com/en/1.10/ref/django-admin/)
 
 ```
@@ -33,14 +39,18 @@ python manage.py createsuperuser
 >prompted: <email>
 >prompted: <password>
 
-## Django-admin section:
+## Django-admin section URL:
  
 > http://<domain>:<port>/admin/
 
 
+## Django admin commands, they are equivalent...
+django-admin <command> [opts]
+manage.py <command> [opts]
+python -m django <command> [opts]
 
 
-
+# --verbosity|-v {0,1,2,3} => no, normal, verbose, very_verbose 
 
 ```
 
@@ -108,6 +118,10 @@ python manage.py makemigrations <appname>
 python manage.py migrate <appname>  # apply those changes to the database.
 
 ## The reason that they are separate commands to make and apply migrations is becuase you'll commit migrations to your version control system and ship them with you app;
+
+### Views
+
+
 
 
 

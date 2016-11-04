@@ -1,0 +1,19 @@
+<h1>
+    {{ animal.animal_name }}
+</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'animals:details' animal.id %}" method="post">
+
+{## url returns an absolute path reference <without domain name> marching a given view and optional parameters #}
+
+    {% csrf_token %}
+    <input type="text" name="animal_name" value="{{  animal.animal_name }}">
+    {# whatever model atributes here    #}
+
+
+    <input type="submit" value="Update Animal Name">
+
+
+</form>
