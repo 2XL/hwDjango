@@ -215,7 +215,7 @@ pip
 
 1. create app: <appname> | django-<appname> # helps others identify as django specific app
 2. dev the app :construction_worker: :wrench: :nut_and_bolt:
-3. [...](hwDjango/tree/master/django-reusableapp/README.mdg
+3. [...](hwDjango/tree/master/django-reusableapp/README.md)
 
 
 
