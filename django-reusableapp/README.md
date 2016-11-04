@@ -4,11 +4,25 @@
 
 
 ```
+# Django App skeleton
+
+    polls/
+        admin.py
+        __init__.py
+        models.py
+        templates/
+            polls/
+                detail.html
+                index.html
+                results.html
+        tests.py
+        urls.py
+        views.py
+
+
 # generate the dist directory and builds a new django package.
 
 python setup.py sdist # run from inside django-<appname>
-
-
 
 # install
 
