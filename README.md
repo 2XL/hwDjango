@@ -142,6 +142,12 @@ pip install django-filter
 ```
 
 
+#### Django Middleware
+
+```
+framework of hooks into Django's req/res processing. It's a light, low-level "plugin" system for globally altering Django input/output
+```
+
 
 
 ##### Git commands
@@ -244,13 +250,19 @@ pip
 
 ##### Concepts
 
-* Apps: is a Web application that does something.
-* Project: a project is a collection of configuration and apps for a particular website.
-* 1 Project can have N apps, 1 App can be in N projects.
+* Apps vs Project:
+    * Apps: is a Web application that does something.
+    * Project: a project is a collection of configuration and apps for a particular website.
+    * 1 Project can have N apps, 1 App can be in N projects.
 
-
-
-
+* Scaffolding:
+    is a technique supported by some MVC frameworks, in which the programmer can specify how the application database may be used.
+    * context
+        * run time: produces code on the fly, it allows changes to the design of the templates to be immediately reflected through the application.
+        * design time
+    * application layer
+        * frontend
+        * backend
 ##### Acronyms
 
 * API : Application Program Interface
