@@ -103,6 +103,41 @@ python manage.py shell
 
 ```
 
+##### How to containerize Python Web Applications [source](https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-python-web-applications)
+
+```
+Motivations is to keep the devHost isolated from the devEnv requriements 
+
+
+```
+
+1. Building a Docker Container to SandBox Python WSGI Apps
+```
+# running the docker daemon
+sudo service docker start # sudo docker -d &
+
+```
+2. Creating a Base Docker Container From Debian
+```
+# boostrap container with interactive mode and bash terminal
+sudo docker run -it -p 80:80 --name=<sandbox_name> debian:latest /bin/bash 
+
+```
+
+3. Customize the SandBox environment
+```
+apt-get update
+apt-get install -y <apps>
+apt-get install -y python python-dev python-distribute python-pip
+pip install flask
+```
+
+4. Create a new image from a container's changes
+```
+sudo docker commit <new-container-name>
+```
+
+
 ##### Django M[V](https://docs.djangoproject.com/en/1.10/intro/tutorial04/)C
 
 ```
@@ -267,3 +302,6 @@ pip
 
 * API : Application Program Interface
 * ORM : Object Relational Mapping
+* WSGI: Web Server Gateway Interface
+* UFW : Uncomplicated Firewall (deny all forwarding traffic by default, requirement by docker)
+* LSB : Linux Standard Base 
