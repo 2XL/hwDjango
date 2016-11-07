@@ -183,6 +183,13 @@ pip install django-filter
 framework of hooks into Django's req/res processing. It's a light, low-level "plugin" system for globally altering Django input/output
 ```
 
+##### sqlite3
+
+```
+sqlite3
+.tables
+```
+
 
 
 ##### Git commands

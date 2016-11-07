@@ -3,20 +3,19 @@
 
 #### 
 
-0. [CURl easy](http://www.yilmazhuseyin.com/blog/dev/curl-tutorial-examples-usage/)
-
-1. [CURL medium](http://www.slashroot.in/curl-command-tutorial-linux-example-usage)
-
-3. [CURL advanced](https://curl.haxx.se/docs/httpscripting.html)
+#### Authentication:
+ * Definition: is the mechanism of associating an incoming request with a set of identifying credentials, such as the suer the request come from, or the token that it was signed with.
+ * The permissions and throttling policies can then use those credentials to determine if te request should be permitted.
 
 
+ * JWT (JSON Web Token)
+    * Single Sign On
+    * Action Links
+    * Web Hooks
+    * Token Based Auth  
 
-
-
-
-
-
-
+ * JWS (JSON Web Signature)
+ * JES (JSON Encryption 
 
 
 
