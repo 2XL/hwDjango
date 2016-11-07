@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # CUSTOM APPS
-    'snipperts.apps.SnippetsConfig'
+    'snippets.apps.SnippetsConfig'
 
 ]
 
