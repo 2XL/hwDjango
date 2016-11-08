@@ -55,10 +55,12 @@ INSTALLED_APPS = (
 
     # more apps
     'rest_framework',
-    'api',
+    'debug_toolbar',
     # MY apps
     'animals',  # 'animals.apps.AnimalsConfig',
-    #
+
+    # random stuff
+    'api',
 
 )
 
