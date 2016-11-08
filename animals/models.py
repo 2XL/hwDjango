@@ -4,6 +4,9 @@ from django.db import models
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 
+from serializers import UserSerializer
+from django.contrib.auth.models import User
+from rest_framework import generics
 
 @python_2_unicode_compatible
 class Animal(models.Model):
@@ -57,6 +60,17 @@ class MaleHuman(CommonInfo):
 
 class FemaleHuman(CommonInfo):
     is_pregnant = models.CharField(max_length=5)
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 
 """
