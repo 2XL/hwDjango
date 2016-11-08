@@ -9,7 +9,6 @@ from pygments.formatters.html import HtmlFormatter
 from pygments import highlight
 
 
-
 LEXERS = [item for item in get_all_lexers() if item[1]]
 LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
 STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
@@ -27,7 +26,7 @@ class Snippet(models.Model):
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
 
     class Meta:
-        ordering = ('created',) # Metadata, or Class Attributes, order by creation time
+        ordering = ('created',)  # Metadata, or Class Attributes, order by creation time
 
     def save(self, *args, **kwargs):
         """
