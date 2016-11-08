@@ -119,7 +119,41 @@ Features:
 ## Testing the API
 
 # list
+```
 http http://127.0.0.1:8888/snippets/
-
+```
 # get
+```
 http http://127.0.0.1:8888/snippets/1/
+```
+
+## Clear database & Migrate Again
+```
+rm -f <DB_NAME>.sqlite3 # or whatever datasource we use
+rm -f <APPNAME>/migrations
+python manage.py makemigrations <APPNAME>
+python manage.py migrate
+```
+## Adding required permissions to views
+
+```
+# views.py
+from rest_framework import permissions
+permission_classes = (permissoins.IsAuthenticatedOrReadOnly,)
+```
+* No longer be able to browse the Snippets, we need to add user login interface
+```
+# urls.py
+urlpatterns += [
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
+]
+```
+
+## Authenticating with the API
+* When we interact with the API through the web browser, we can login, and the browser session will then provide the required authentication for the requests.
+* If we're interacting with the API programmatically we need to explicitly provide the authentication credentials on each request.
+
+```
+http -a tom:password123 POST http://127.0.0.1:8000/snippets/ code="print 789"
+```

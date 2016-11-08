@@ -38,27 +38,55 @@ from django.contrib.auth.models import User
 #         instance.save()
 #         return instance
 
+# Example: ModelSerializers
+#
+# class SnippetSerializer(serializers.ModelSerializer):
+#     owner = serializers.ReadOnlyField(source='owner.username') # rouce: which argument to be populated in a view
+#     # owner = serializers.CharField(read_only=True, source='owner.username') # same as line above
+#     class Meta:
+#         """
+#         Make sure to add the reference key to the Meta.fields
+#         """
+#         model = Snippet
+#         fields = ('id', 'title', 'code', 'linenos', 'language', 'style', 'owner')
+#
+#
+# # Section authentication & permissions
+#
+#
+# class UserSerializer(serializers.ModelSerializer):
+#
+#     snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
+#
+#     class Meta:
+#         model = User
+#         fields = ('id','username','snippets')
+#         # becuase snippets is a reverse relationship on the User model, it will not be
+#         # included by default when using the ModelSerializer class... require explicit field
 
-class SnippetSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username') # rouce: which argument to be populated in a view
-    # owner = serializers.CharField(read_only=True, source='owner.username') # same as line above
+# Example : Hyperlinked APIs
+"""
+It does not include the id field by default.
+It includes a url field, using HyperlinkedIdentityField.
+Relationships use HyperlinkedRelatedField, instead of PrimaryKeyRelatedField.
+"""
+
+
+class SnippetSerializer(serializers.HyperlinkedModelSerializer):  # its id is an url
+    owner = serializers.ReadOnlyField(source='owner.username')
+    highlight = serializers.\
+        HyperlinkedIdentityField(view_name='snippet-highlight', format='html')
+
     class Meta:
-        """
-        Make sure to add the reference key to the Meta.fields
-        """
         model = Snippet
-        fields = ('id', 'title', 'code', 'linenos', 'language', 'style', 'owner')
+        fields = ('url', 'id', 'highlight', 'owner',
+                  'title', 'code', 'linenos', 'language', 'style')
 
 
-# Section authentication & permissions
-
-
-class UserSerializer(serializers.ModelSerializer):
-
-    snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    snippets = serializers.\
+        HyperlinkedRelatedField(many=True, view_name='snippet-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('id','username','snippets')
-        # becuase snippets is a reverse relationship on the User model, it will not be
-        # included by default when using the ModelSerializer class... require explicit field
+        fields = ('url', 'id', 'username', 'snippets')
