@@ -2,7 +2,19 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, render
 
 
-from animals.models import Animal
+from .serializers import UserSerializer
+from django.contrib.auth.models import User
+from rest_framework import generics
+
+
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 def index(request):

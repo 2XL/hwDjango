@@ -5,17 +5,6 @@
 "why
 
 
-### Unit Testing
-
- * it tells a developer that the code is doing things right
- * Testing an individual unit such as a method or function in a class, with all dependencies mocked up
-
-
-
-### Functional Testing
-
- * it tells a developer that the code is doing the right things
- * AKA integration test, testing a slice of functionality in a system, This will test many methods and may interact with dependencies like Databases or WebServices.
 
 ### Debugging Django Application
 
