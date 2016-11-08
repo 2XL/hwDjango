@@ -82,7 +82,6 @@ def <app_name_list(request, pk)
 # GET | UPDATE | DELETE
 ```
 
-## Using mixins
 
 A mixin is a special kind of multiple inheritance, use case:
  1. You want to provide a lot of optional features for a class
@@ -110,6 +109,10 @@ from werkzeug import BaseRequest, AcceptMixin, ETagRequestMixin, UserAgentMixin,
 class Request(BaseRequest, AcceptMixin, ETagRequestMixin, UserAgentMixin, AuthorizationMixin):
     pass
 ```
+
+## Authentication & Permissions
+
+Features:
 
 
 
